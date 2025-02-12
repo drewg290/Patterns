@@ -37,6 +37,21 @@ export function makeBoard(rows, cols) {
  */
 export function makeTriangle(size) {
   // TODO
+  if (typeof size != "number") {
+    return null;
+  }
+  if (size <= 0) {
+    return [];
+  }
+  let triangle = [];
+  for (let i = 0; i < size; i++) {
+    triangle[i] = []; // Create an empty row
+    for (let j = 0; j <= i; j++) {
+      triangle[i][j] = "-"; // Initialize each cell to a default value (0)
+    }
+  }
+
+  return triangle;
 }
 
 /**
@@ -47,4 +62,16 @@ export function makeTriangle(size) {
  */
 export function countLetter(words, letter) {
   // TODO
+  if (typeof letter != "string") {
+    return 0;
+  }
+  let sum = 0;
+  for (const element of words) {
+    for (let i = 0; i < element.length; i++) {
+      if (element[i] == letter) {
+        sum += 1;
+      }
+    }
+  }
+  return sum;
 }
